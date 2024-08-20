@@ -1,49 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import Promos from '../components/Promos.astro';
+import Pizzas from '../components/Pizzas.astro';
+import Bebidas from '../components/Bebidas.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<header class=" p-4 fixed w-full text-white flex justify-between text-center items-center bg-gray-700 lg:px-40 px-10 z-20">
-
-			<div class="flex flex-grow basis-0">
-				<a href="#top" class="content-center">
-					<h1 >
-						El secreto de la Z
-					</h1>
-				</a>
-				
-			</div>
-
-			<nav class="flex flex-grow justify-center basis-0">
-				<ul class="flex content-center gap-4">
-					<li>
-						<a class="hover:underline underline-offset-8" href="#promos">Promos💰</a>
-					</li>
-					<li>
-						<a class="hover:underline underline-offset-8" href="#pizzas">Pizzas🍕</a>
-					</li>
-					<li>
-						<a class="hover:underline underline-offset-8" href="#bebidas"> Bebidas🥫</a>
-					</li>
-				</ul>
-			</nav>
-
-			<nav class=" flex flex-grow basis-0 justify-end">
-				<ul class="flex gap-4">
-					<li>
-						<a class="hover:underline underline-offset-8" href="#top">Inicio</a>
-					</li>
-					<li>
-						<a class="hover:underline underline-offset-8" href="/">Menú</a>
-					</li>
-					<li>
-						<a class="hover:underline underline-offset-8" href="/"> Contacto</a>
-					</li>
-				</ul>
-			</nav>
-			
-	</header>
+	<Header/>
 	<main class="">
 		<div class="flex flex-col pt-20">
 			<h1 class="text-amber-200 text-center text-8xl new-amsterdam-regular animate-fade-in animate-duration-1000">
@@ -54,106 +18,12 @@ import Card from '../components/Card.astro';
 			</h2>
 		</div>
 
-		<section id="promos" >
-			<div class="pt-20">
-				<h1>Promos💰</h1>
-				<div class="grid grid-cols-4 gap-4">
-					<Card title='Pizza Napolitana con bebida'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
+		<Promos/>
+		<Pizzas/>
+		<Bebidas/>
+		
 
-					<Card title='Pizza Margarita'; body='pizza margarita sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-					
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-				
-
-				</div>
-			</div>
-		</section>
-
-		<section id="pizzas">
-			<div class="pt-20">
-				<h1>Promos💰</h1>
-
-				<div class="grid grid-cols-4 gap-4">
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-					
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-				
-
-				</div>
-			</div>
-		</section>
-
-		<section id="bebidas">
-			<div class="pt-20">
-				<h1>Promos💰</h1>
-
-				<div class="grid grid-cols-4 gap-4">
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-					
-					<Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='src/images/pizza.jpeg';>
-					</Card>
-				
-
-				</div>
-			</div>
-		</section>
+		
 
 	</main>
 	<footer class="bottom-0 h-40 w-full bg-black content-center">
