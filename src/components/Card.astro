@@ -1,0 +1,20 @@
+---
+interface Props {
+	title: string;
+	body: string;
+	img: string;
+}
+
+const { img, title, body } = Astro.props;
+---
+
+<div id="card" class="bg-slate-600 rounded">
+	<img class="rounded-t" src={img} alt="">
+	<div class="p-2">
+
+		<h1 class="text-center text-amber-200">{title}</h1>
+		<p class="text-justify">
+			{body}
+		</p>
+	</div>
+</div>
