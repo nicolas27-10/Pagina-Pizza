@@ -8,15 +8,30 @@ import Bebidas from '../components/Bebidas.astro';
 
 <Layout title="Welcome to Astro.">
 	<Header/>
-	<main class="">
-		<div class="flex flex-col pt-20">
-			<h1 class="text-amber-200 text-center text-8xl new-amsterdam-regular animate-fade-in animate-duration-1000">
-				EL SECRETO DE LA Z
-			</h1>
-			<h2 class="pt-4  italic text-amber-200 text-center text-3xl animate-fade-in animate-duration-1000 animate-delay-800">
-				Pizza Napoletana
-			</h2>
+	<div class="flex flex-col pt-20">
+		<h1 class="text-amber-200 text-center text-8xl new-amsterdam-regular animate-fade-in animate-duration-1000">
+			EL SECRETO DE LA Z
+		</h1>
+		<h2 class="pt-4  italic text-amber-200 text-center text-3xl animate-fade-in animate-duration-1000 animate-delay-800">
+			Pizza Napoletana
+		</h2>
+	</div>
+	<div class="bg-slate-600 w-full h-14 sticky top-16 z-20 mt-20">
+			<nav class="flex flex-grow justify-center ">
+			<ul class="flex content-center gap-4">
+				<li>
+					<a class="hover:underline underline-offset-8" href="#promos">Promos💰</a>
+				</li>
+				<li>
+					<a class="hover:underline underline-offset-8" href="#pizzas">Pizzas🍕</a>
+				</li>
+				<li>
+					<a class="hover:underline underline-offset-8" href="#bebidas"> Bebidas🥤</a>
+				</li>
+			</ul>
+		</nav>
 		</div>
+	<main class="">
 
 		<Promos/>
 		<Pizzas/>
@@ -40,7 +55,7 @@ import Bebidas from '../components/Bebidas.astro';
 		margin: auto;
 		padding: 1rem;
 		width: 1000px;
-		max-width: calc(100% - 2rem);
+		max-width: calc(100% - 1rem);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
