@@ -11,18 +11,18 @@ import Bebidas from '../components/Bebidas.astro';
 	<section class="h-screen">
 
 		<div class="flex justify-center bg-gradient-to-r from-slate-200 via-yellow-400 to-zinc-200">
-			<div class="relative mx-auto w-[1097.25px]">
+			<div class="relative mx-auto 2xl:w-[1097.25px] w-[548.62px]">
 				<div id="carousel" class="flex overflow-x-scroll snap-x snap-mandatory scroll-smooth  no-scrollbar">
-					<img src="/images/promo.png" class="h-80 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
-					<img src="/images/promo.png" class="h-80 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
-					<img src="/images/promo.png" class="h-80 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
+					<img src="/images/promo.png" class="2xl:h-80 md:h-52 h-40 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
+					<img src="/images/promo.png" class="2xl:h-80 md:h-52 h-40 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
+					<img src="/images/promo.png" class="2xl:h-80 md:h-52 h-40 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
 				</div>
 				
-				<button id="prevBtn" class="absolute top-1/2 transform -translate-y-1/2 left-0 bg-gray-800 text-white px-4 pb-1.5 rounded-r-md text-3xl hover:scale-110 hover:translate-x-2 transition-transform">
+				<button id="prevBtn" class="absolute top-1/2 transform -translate-y-1/2 left-0 bg-gray-800 text-white px-4 pb-1.5 rounded-r-md text-3xl  active:bg-gray-900  transition opacity-70 hover:opacity-100">
 					‹
 				</button>
 
-				<button id="nextBtn" class="absolute top-1/2 transform -translate-y-1/2 right-0 bg-gray-800 text-white px-4 pb-1.5 rounded-l-md text-3xl">
+				<button id="nextBtn" class="absolute top-1/2 transform -translate-y-1/2 right-0 bg-gray-800 text-white px-4 pb-1.5 rounded-l-md text-3xl  active:bg-gray-900 transition opacity-70 hover:opacity-100">
 					›
 				</button>
 
@@ -35,10 +35,10 @@ import Bebidas from '../components/Bebidas.astro';
 		</div>
 		
 		<div class="flex flex-col pt-20 shadow">
-			<h1 class="text-amber-200 text-center text-9xl new-amsterdam-regular animate-fade-in animate-duration-1000">
+			<h1 class="text-amber-200 text-center 2xl:text-9xl text-7xl new-amsterdam-regular animate-fade-in animate-duration-1000">
 				EL SECRETO DE LA Z
 			</h1>
-			<h2 class="pt-4  italic text-amber-200 text-center text-5xl animate-fade-in animate-duration-1000 animate-delay-800">
+			<h2 class="pt-4  italic text-amber-200 text-center 2xl:text-5xl text-3xl animate-fade-in animate-duration-1000 animate-delay-800">
 				Pizza Napoletana
 			</h2>
 		</div>
@@ -79,7 +79,7 @@ import Bebidas from '../components/Bebidas.astro';
 	</footer>
 </Layout>
 
-<style>
+<style is:global>
 	main {
 		/* margin: auto; */
 		/* padding: 1rem; */
@@ -98,6 +98,11 @@ import Bebidas from '../components/Bebidas.astro';
 
 	.no-scrollbar::-webkit-scrollbar {
 		display: none;
+	}
+
+	.active-link {
+    
+    border-bottom: 1px solid #ffeb3b;
 	}
 </style>
 
@@ -145,4 +150,38 @@ prevBtn.addEventListener('click', () => {
 // Inicia el primer indicador como activo
 updateIndicators(0);
 
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    console.log("Secciones encontradas:", sections);
+
+    if (sections.length === 0) {
+        console.error("No se encontraron secciones con IDs. Verifica tu HTML.");
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            const navLink = document.querySelector(`nav ul li a[href="#${id}"]`);
+
+            console.log(`Sección ${id} está intersectando:`, entry.isIntersecting);
+
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove('active-link'));
+                navLink.classList.add('active-link');
+            }else{
+				navLink.classList.remove('active-link');
+			}
+        });
+    }, {
+        rootMargin: '20% 0px -25% 0px',  // Ajusta la zona de intersección para que se active cuando la sección esté centrada
+        threshold: 0.3                    // Cuando el 10% de la sección esté visible
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
 </script>
