@@ -6,40 +6,69 @@ import Pizzas from '../components/Pizzas.astro';
 import Bebidas from '../components/Bebidas.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="El Secreto de la Z">
 	<Header/>
-	<div class="flex flex-col pt-20">
-		<h1 class="text-amber-200 text-center text-8xl new-amsterdam-regular animate-fade-in animate-duration-1000">
-			EL SECRETO DE LA Z
-		</h1>
-		<h2 class="pt-4  italic text-amber-200 text-center text-3xl animate-fade-in animate-duration-1000 animate-delay-800">
-			Pizza Napoletana
-		</h2>
-	</div>
-	<div class="bg-slate-600 w-full h-14 sticky top-16 z-20 mt-20">
-			<nav class="flex flex-grow justify-center ">
-			<ul class="flex content-center gap-4">
-				<li>
-					<a class="hover:underline underline-offset-8" href="#promos">Promos💰</a>
-				</li>
-				<li>
-					<a class="hover:underline underline-offset-8" href="#pizzas">Pizzas🍕</a>
-				</li>
-				<li>
-					<a class="hover:underline underline-offset-8" href="#bebidas"> Bebidas🥤</a>
-				</li>
-			</ul>
-		</nav>
+	<section class="h-screen">
+
+		<div class="flex justify-center bg-gradient-to-r from-slate-200 via-yellow-400 to-zinc-200">
+			<div class="relative mx-auto w-[1097.25px]">
+				<div id="carousel" class="flex overflow-x-scroll snap-x snap-mandatory scroll-smooth  no-scrollbar">
+					<img src="src/images/promo.png" class="h-80 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
+					<img src="src/images/promo.png" class="h-80 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
+					<img src="src/images/promo.png" class="h-80 rounded-md shadow my-10 snap-center object-cover w-auto" alt="">
+				</div>
+				
+				<button id="prevBtn" class="absolute top-1/2 transform -translate-y-1/2 left-0 bg-gray-800 text-white px-4 pb-1.5 rounded-r-md text-3xl hover:scale-110 hover:translate-x-2 transition-transform">
+					‹
+				</button>
+
+				<button id="nextBtn" class="absolute top-1/2 transform -translate-y-1/2 right-0 bg-gray-800 text-white px-4 pb-1.5 rounded-l-md text-3xl">
+					›
+				</button>
+
+				<div id="indicators" class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+					<div class="dot h-2 w-2 bg-gray-400 rounded-full"></div>
+					<div class="dot h-2 w-2 bg-gray-400 rounded-full"></div>
+					<div class="dot h-2 w-2 bg-gray-400 rounded-full"></div>
+				</div>
+			</div>
 		</div>
-	<main class="">
-
-		<Promos/>
-		<Pizzas/>
-		<Bebidas/>
 		
+		<div class="flex flex-col pt-20 shadow">
+			<h1 class="text-amber-200 text-center text-9xl new-amsterdam-regular animate-fade-in animate-duration-1000">
+				EL SECRETO DE LA Z
+			</h1>
+			<h2 class="pt-4  italic text-amber-200 text-center text-5xl animate-fade-in animate-duration-1000 animate-delay-800">
+				Pizza Napoletana
+			</h2>
+		</div>
+	</section>
 
-		
+	<main class="text-xl flex-col">
+		<div class="bg-slate-600 w-full h-20 sticky top-16 z-20 -mt-36 xl:px-80 px-10 items-center flex text-white border-t-4 border-b-4 border-yellow-300" style="background: #13151a;">
+			<nav class="flex flex-grow justify-start ">
+				<ul class="flex content-center gap-4">
+					<li>
+						<a class="hover:underline underline-offset-8" href="#promos">Promos💰</a>
+					</li>
+					<li>
+						<a class="hover:underline underline-offset-8" href="#pizzas">Pizzas🍕</a>
+					</li>
+					<li>
+						<a class="hover:underline underline-offset-8" href="#bebidas"> Bebidas🥤</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="content-center" style="width: 1000px; margin: auto; padding: 1rem; max-width: calc(100% - 1rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;">
 
+			<Promos/>
+			<Pizzas/>
+			<Bebidas/>
+		</div>
 	</main>
 	<footer class="bottom-0 h-40 w-full bg-black content-center">
 		<div class="text-center text-white">
@@ -52,19 +81,68 @@ import Bebidas from '../components/Bebidas.astro';
 
 <style>
 	main {
-		margin: auto;
-		padding: 1rem;
-		width: 1000px;
-		max-width: calc(100% - 1rem);
+		/* margin: auto; */
+		/* padding: 1rem; */
+		/* width: 1000px; */
+		/* max-width: calc(100% - 1rem);
 		color: white;
 		font-size: 20px;
-		line-height: 1.6;
+		line-height: 1.6; */
 	}
 
 	.new-amsterdam-regular {
   font-family: "New Amsterdam", sans-serif;
   font-weight: 400;
   font-style: normal;
+	}
+
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+</style>
+
+<script>
+	const carousel = document.getElementById('carousel');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const dots = document.querySelectorAll('.dot');
+
+// Obtenemos la cantidad de imágenes y el ancho de cada una
+const scrollAmount = carousel.clientWidth;
+const totalImages = dots.length;
+
+// Función para actualizar los indicadores
+function updateIndicators(index) {
+    dots.forEach((dot, i) => {
+        if (i === index) {
+            dot.classList.add('bg-gray-800');
+            dot.classList.remove('bg-gray-400');
+        } else {
+            dot.classList.add('bg-gray-400');
+            dot.classList.remove('bg-gray-800');
+        }
+    });
 }
 
-</style>
+// Evento para el botón de siguiente
+nextBtn.addEventListener('click', () => {
+    const currentIndex = Math.round(carousel.scrollLeft / scrollAmount);
+    if (currentIndex < totalImages - 1) {
+        carousel.scrollLeft += scrollAmount;
+        updateIndicators(currentIndex + 1);
+    }
+});
+
+// Evento para el botón de anterior
+prevBtn.addEventListener('click', () => {
+    const currentIndex = Math.round(carousel.scrollLeft / scrollAmount);
+    if (currentIndex > 0) {
+        carousel.scrollLeft -= scrollAmount;
+        updateIndicators(currentIndex - 1);
+    }
+});
+
+// Inicia el primer indicador como activo
+updateIndicators(0);
+
+</script>
