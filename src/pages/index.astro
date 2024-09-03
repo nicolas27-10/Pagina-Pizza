@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Promos from '../components/Promos.astro';
 import Pizzas from '../components/Pizzas.astro';
 import Bebidas from '../components/Bebidas.astro';
+import ModalIngresa from '../components/Modal_Ingresa.astro';
 ---
 
 <Layout title="El Secreto de la Z">
@@ -44,6 +45,7 @@ import Bebidas from '../components/Bebidas.astro';
 		</div>
 	</section>
 
+	<ModalIngresa/>
 	<main class="text-xl flex-col">
 		<div class="bg-slate-600 w-full h-20 sticky top-16 z-20 -mt-36 xl:px-80 px-10 items-center flex text-white border-t-4 border-b-4 border-yellow-300" style="background: #13151a;">
 			<nav class="flex flex-grow justify-start ">
@@ -104,6 +106,10 @@ import Bebidas from '../components/Bebidas.astro';
     
     border-bottom: 1px solid #ffeb3b;
 	}
+
+	#modal::backdrop{
+		background-color: rgba(0, 0, 0, 0.6);
+		}
 </style>
 
 <script>
@@ -184,4 +190,6 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 });
+
+
 </script>

@@ -10,8 +10,8 @@ const { img, title, body, price } = Astro.props;
 ---
 <button type="button">
 
-	<div id="card" class="bg-slate-600 rounded hover:scale-105 transition h-full flex flex-col">
-		<img class="rounded-t" src={img} alt="">
+	<div id="card" class="bg-slate-600 rounded hover:scale-105 transition h-full flex flex-col sm:mx-0 mx-5">
+		<img class="rounded-t" src={img} alt={title}>
 		<div class="p-2">
 			
 			<h1 class="text-center text-amber-200 text-3xl new-amsterdam-regular">{title}</h1>
