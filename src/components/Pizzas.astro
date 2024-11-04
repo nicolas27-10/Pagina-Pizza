@@ -1,36 +1,25 @@
 ---
 import Card from '../components/Card.astro';
+
+const pizzas = [
+    { title: 'pizza 1', body: 'Descripción de la pizza 1', img: '/images/pizza.jpeg', price: '$$' },
+    { title: 'pizza 2', body: 'Descripción de la pizza 2', img: '/images/pizza.jpeg', price: '$$' },
+    { title: 'pizza 3', body: 'Descripción de la pizza 3', img: '/images/pizza.jpeg', price: '$$' },
+    { title: 'pizza 4', body: 'Descripción de la pizza 4', img: '/images/pizza.jpeg', price: '$$' },
+    { title: 'pizza 5', body: 'Descripción de la pizza 5', img: '/images/pizza.jpeg', price: '$$' },
+    { title: 'pizza 6', body: 'Descripción de la pizza 6', img: '/images/pizza.jpeg', price: '$$' },
+    { title: 'pizza 7', body: 'Descripción de la pizza 7', img: '/images/pizza.jpeg', price: '$$' },
+    { title: 'pizza 8', body: 'Descripción de la pizza 8', img: '/images/pizza.jpeg', price: '$$' },
+];
 ---
 <section id="pizzas">
     <div class="pt-36">
         <h1>Pizzas🍕</h1>
 
         <div class="grid sm:grid-cols-4 grid-cols-1 gap-6 pt-2">
-            <Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='/images/pizza.jpeg'; price='5000'>
-            </Card>
-
-            <Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='/images/pizza.jpeg'; price='5000'>
-            </Card>
-
-            <Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='/images/pizza.jpeg'; price='5000'>
-            </Card>
-
-            <Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='/images/pizza.jpeg'; price='5000'>
-            </Card>
-
-            <Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='/images/pizza.jpeg'; price='5000'>
-            </Card>
-
-            <Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='/images/pizza.jpeg'; price='5000'>
-            </Card>
-
-            <Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='/images/pizza.jpeg'; price='5000'>
-            </Card>
-            
-            <Card title='Pizza Napo'; body='pizza napolitana sdjfsndfj'; img='/images/pizza.jpeg'; price='5000'>
-            </Card>
-        
-
+            {pizzas.map(pizza => (
+                <Card title={pizza.title} body={pizza.body} img={pizza.img} price={pizza.price} />
+            ))}
         </div>
     </div>
 </section>
