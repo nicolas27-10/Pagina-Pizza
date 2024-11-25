@@ -7,7 +7,7 @@ import ModalIngresa from "../components/Modal_Ingresa.astro"
 <Layout title="El Secreto de la Z">
 	<Header/>
 	<ModalIngresa/>
-	<main class="h-screen">
+	<main class="h-full lg:h-screen">
 		<div class="flex flex-col">
 			<h1 class="text-amber-200 text-center 2xl:text-8xl text-7xl new-amsterdam-regular animate-fade-in animate-duration-1000">
                 CARRITO DE COMPRAS
@@ -17,8 +17,8 @@ import ModalIngresa from "../components/Modal_Ingresa.astro"
 			</h2>
 		</div>
 		<br>
-		<section class="grid grid-cols-6 gap-4 text-black">
-			<div class="col-span-4">
+		<section class="flex flex-col lg:grid lg:grid-cols-6 gap-4 text-black py-16">
+			<div class="lg:col-span-4">
 				
 				<div class="bg-white/95 w-full p-4 rounded-md shadow">
 					<h1 class="font-semibold text-lg mb-2">Detalle de entrega</h1>
@@ -39,7 +39,7 @@ import ModalIngresa from "../components/Modal_Ingresa.astro"
 				<div class="bg-white/95 w-full p-4 rounded-md shadow mt-4">
 					<h1 class="font-semibold text-lg mb-2">Productos</h1>
 					<div class="space-y-4">
-						<!-- Producto individual -->
+
 						<div class="flex justify-between items-center border-b pb-2">
 							<div class="flex items-center space-x-4">
 								<img src="/images/pizza.jpeg" alt="Pizza" class="w-16 h-16 rounded-md">
@@ -48,8 +48,8 @@ import ModalIngresa from "../components/Modal_Ingresa.astro"
 									<p class="text-sm text-gray-500">Tamaño: Grande</p>
 								</div>
 							</div>
-							<div class="flex items-center space-x-4">
-								<p class="font-semibold">$10000</p>
+							<div class="flex flex-col lg:flex-row items-center space-x-4">
+								<p class="font-semibold text-center">$10000</p>
 								<input type="number" value="1" min="1" class="w-12 border rounded text-center">
 								<button class="text-red-500 hover:underline">Eliminar</button>
 							</div>
@@ -61,7 +61,7 @@ import ModalIngresa from "../components/Modal_Ingresa.astro"
 			</div>
 		
 			
-			<div class="col-span-2">
+			<div class="lg:col-span-2">
 				<div class="bg-white/95 w-full p-4 rounded-md shadow">
 					<h1 class="font-semibold text-lg mb-2">Resumen</h1>
 					<div class="space-y-2">
@@ -82,7 +82,9 @@ import ModalIngresa from "../components/Modal_Ingresa.astro"
 						Proceder al pago
 					</button>
 					<button class="w-full bg-gray-200 text-gray-700 py-2 mt-2 rounded-md hover:bg-gray-300">
-						Seguir comprando
+						<a href="/#promos">
+							Seguir comprando
+						</a>
 					</button>
 				</div>
 			</div>

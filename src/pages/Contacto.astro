@@ -7,7 +7,7 @@ import Modal_Ingresa from "../components/Modal_Ingresa.astro"
 <Layout title="El Secreto de la Z">
 	<Header/>
 	<Modal_Ingresa/>
-	<main class="h-screen">
+	<main class="h-full min-w-full">
 		<div class="flex flex-col pt-20">
 			<h1 class="text-amber-200 text-center text-8xl new-amsterdam-regular animate-fade-in animate-duration-1000">
 				CONTACTO
@@ -17,6 +17,39 @@ import Modal_Ingresa from "../components/Modal_Ingresa.astro"
 			</h2>
 		</div>
 		
+		<section class="flex flex-col lg:flex-row gap-8 items-center justify-center py-10">
+			
+
+			<div class="max-w-lg w-full bg-white p-8 rounded-xl shadow-lg">			  
+			  <form action="#" method="POST" class="space-y-6">
+				
+				<div>
+				  <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+				  <input type="text" id="name" name="name" class="text-black mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required />
+				</div>
+		  
+				<div>
+				  <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+				  <input type="email" id="email" name="email" class="text-black mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required />
+				</div>
+		  
+				<div>
+				  <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+				  <textarea id="message" name="message" rows="4" class="text-black mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
+				</div>
+		  
+				<div class="flex justify-center">
+				  <button type="submit" class="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+					Enviar mensaje
+				  </button>
+				</div>
+			  </form>
+			</div>
+
+			<div>
+				<iframe class="lg:w-[550px] w-96 rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.3995807785273!2d-70.57681462343132!3d-33.56897310359339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d729e2dfb37d%3A0xbfcae9e8cd8b7a8b!2sCerro%20El%20Papagayo%203923%2C%208220818%20Puente%20Alto%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1732542358578!5m2!1ses!2scl"  height="530" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+		  </section>
 
 	</main>
 	<footer class="bottom-0 h-40 w-full bg-black content-center">
