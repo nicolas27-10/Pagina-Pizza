@@ -1,6 +1,7 @@
 ---
 import Card from '../components/Card.astro';
 import { pizzas } from './Productos.astro';
+import ModalProductos from './Modal_productos.astro';
 
 
 
@@ -11,8 +12,23 @@ import { pizzas } from './Productos.astro';
 
         <div class="grid sm:grid-cols-4 grid-cols-1 gap-6 pt-2">
             {pizzas.map(pizza => (
-                <Card title={pizza.title} body={pizza.body} img={pizza.img} price={pizza.price} />
+                <Card id={pizza.id} title={pizza.title} body={pizza.body} img={pizza.img} price={pizza.price} onClick={() => openModal(pizza)}/>
             ))}
         </div>
     </div>
+
+    <ModalProductos/>
 </section>
+
+
+<style>
+    .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 50;
+    }
+</style>

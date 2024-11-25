@@ -1,6 +1,8 @@
 ---
 import Card from '../components/Card.astro';
 import { promos } from './Productos.astro';
+import ModalProductos from './Modal_productos.astro';
+
 
 // const promos = [
 //     { title: 'Promo 1', body: 'Descripción de la promo 1', img: '/images/pizza.jpeg', price: '$$' },
@@ -21,8 +23,11 @@ import { promos } from './Productos.astro';
 
         <div class="grid md:grid-cols-4 grid-cols-1 gap-6 pt-2">
             {promos.map(promo => (
-                <Card title={promo.title} body={promo.body} img={promo.img} price={promo.price} />
+                <Card id={promo.id} title={promo.title} body={promo.body} img={promo.img} price={promo.price} />
+                <ModalProductos title={promo.title} body={promo.body} img={promo.img} price={promo.price}/>
             ))}
         </div>
     </div>
+    
+
 </section>

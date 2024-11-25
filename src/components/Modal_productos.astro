@@ -1,0 +1,57 @@
+---
+// Modal.astro
+export interface ModalProps {
+    title: string;
+    body: string;
+    img: string;
+    price: number;
+    isVisible: boolean;
+    onClose: () => void;
+}
+
+const { title, body, img, price} = Astro.props;
+
+// if (!isVisible) return null;
+---
+<dialog id="modal-producto" class="rounded-2xl">
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
+            <button id="btn-cerrar-modal-producto" class="absolute top-2 right-2 text-gray-500">✖️</button>
+            <h2 class="text-2xl font-semibold mb-4">{title}</h2>
+            <img src={img} alt={title} class="w-full h-64 object-cover mb-4" />
+            <p>{body}</p>
+            <p class="text-xl font-bold mt-4">Precio: ${price}</p>
+            <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                Agregar al carro
+            </button>
+        </div>
+    </div>
+
+</dialog>
+<style>
+    .modal {
+        display: {isVisible ? 'block' : 'none'};
+    }
+</style>
+
+<script>
+    const btnAbrirModal = document.getElementById('btn-modal-producto');
+    const modalProducto = document.getElementById('modal-producto') as HTMLDialogElement;
+    const btnCerrarModalProducto = document.getElementById('btn-cerrar-modal-producto');
+
+    btnAbrirModal.addEventListener('click', () => {
+        modalProducto.showModal();
+
+    });
+
+    btnCerrarModalProducto.addEventListener('click', () => {
+        modalProducto.close();
+    });
+
+    modalProducto.addEventListener('click', (e) => {
+        if (e.target === modalProducto) {
+            modalProducto.close();
+        }
+    });
+
+</script>

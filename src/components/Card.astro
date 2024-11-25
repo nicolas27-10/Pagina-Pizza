@@ -1,14 +1,15 @@
 ---
 interface Props {
-	title: string;
-	body: string;
-	img: string;
-	price: number;
+	id?: string;
+	title?: string;
+	body?: string;
+	img?: string;
+	price?: number;
 }
 
-const { img, title, body, price } = Astro.props;
+const { img, title, body, price} = Astro.props;
 ---
-<button type="button">
+<button id="btn-modal-producto">
 
 	<div id="card" class="bg-slate-600 rounded hover:scale-105 transition h-full flex flex-col sm:mx-0 mx-5">
 		<img class="rounded-t" src={img} alt={title}>
@@ -24,4 +25,6 @@ const { img, title, body, price } = Astro.props;
 		</div>
 	</div>
 </button>
+
+
 
